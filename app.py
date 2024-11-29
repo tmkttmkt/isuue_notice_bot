@@ -18,6 +18,7 @@ async def on_ready():
 async def hello(ctx):
     await ctx.send("Hello, world!")
 print(os.environ)
+print(DISCORD_TOKEN)
 print("DISCORD_TOKEN:", os.getenv("DISCORD_TOKEN"))
 # Railway環境変数からトークンを取得
 bot.run(os.getenv("DISCORD_TOKEN"))
