@@ -17,8 +17,6 @@ async def on_ready():
 @bot.command()
 async def hello(ctx):
     await ctx.send("Hello, world!")
-print(os.environ)
-print("DISCORD_TOKEN:", os.getenv("DISCORD_TOKEN"))
 # Railway環境変数からトークンを取得
 bot.run(os.getenv("DISCORD_TOKEN"))
 
@@ -27,4 +25,4 @@ bot.run(os.getenv("DISCORD_TOKEN"))
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
