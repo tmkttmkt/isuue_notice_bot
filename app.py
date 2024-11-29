@@ -1,6 +1,7 @@
 from flask import Flask
 import discord
 import os
+import threading
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,12 +18,21 @@ async def on_ready():
 @bot.command()
 async def hello(ctx):
     await ctx.send("Hello, world!")
-# Railway環境変数からトークンを取得
-bot.run(os.getenv("DISCORD_TOKEN"))
 
 
 
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True)
+def run_flask():
+    app.run(debug=True, use_reloader=False)  # use_reloader=FalseはFlaskの再起動を防ぐ
+
+# Discordボットをメインスレッドで実行
+def run_discord_bot():
+    bot.run(os.getenv("DISCORD_TOKEN"))
+
+if __name__ == "__main__":
+    # Flaskをバックグラウンドで実行
+    threading.Thread(target=run_flask).start()
+    
+    # Discordボットを実行
+    #threading.Thread(target=run_discord_bot).start()
+    run_discord_bot()
