@@ -38,7 +38,7 @@ async def getissue(ctx):
             assignees=[assigne["login"] for assigne in issue["assignees"]]
             print(assignees)
     else:
-        print(f"Failed to retrieve issues: {response.status_code}")
+        await ctx.send(f"Failed to retrieve issues: {response.status_code}")
 
 @bot.command()
 async def mention(ctx):
