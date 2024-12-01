@@ -1,8 +1,8 @@
 [build]
   image = "python:3.11"
   commands = [
-    "pip install -r requirements.txt"
-    echo "Hello, World!"
+    "pip install -r requirements.txt",
+    "echo 'Hello, World!'"
   ]
 
 [run]
