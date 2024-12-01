@@ -20,11 +20,11 @@ async def hello(ctx):
 def hello_world():
   return 'Hello, World!'
 @app.route('/start')
-def hello_world():
+def start():
   bot.run(os.getenv("DISCORD_TOKEN"))
   return 'start'
 @app.route('/stop')
-def hello_world():
+def stop():
   bot.close()
   return 'stop'
 
