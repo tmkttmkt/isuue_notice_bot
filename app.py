@@ -2,9 +2,10 @@ from fastapi import FastAPI
 import os
 import discord
 import asyncio
-from data import names
+from data import names,url
 from threading import Thread
-
+import requests
+import json
 # FastAPIアプリケーションを作成
 app = FastAPI()
 
@@ -26,7 +27,18 @@ async def on_ready():
 @bot.command()
 async def test(ctx):
     await ctx.respond("かかっeeeて来いよ")
-    
+
+
+@bot.command()
+async def getissue(ctx):
+    response = requests.get(url)
+    if response.status_code == 200:
+        issues = response.json()
+        for issue in issues:
+            assignees=[assigne["login"] for assigne in issue["assignees"]]
+    else:
+        print(f"Failed to retrieve issues: {response.status_code}")
+
 @bot.command()
 async def mention(ctx):
     # ユーザーIDからUserオブジェクトを取得
