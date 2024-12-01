@@ -36,7 +36,7 @@ async def getissue(ctx):
         issues = response.json()
         for issue in issues:
             assignees=[assigne["login"] for assigne in issue["assignees"]]
-            print(assignees)
+            await ctx.send(assignees)
     else:
         await ctx.send(f"Failed to retrieve issues: {response.status_code}")
 
