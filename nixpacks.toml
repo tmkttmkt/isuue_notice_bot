@@ -1,0 +1,13 @@
+[build]
+  image = "python:3.11"
+  commands = [
+    "pip install -r requirements.txt"
+  ]
+
+[run]
+  command = [
+    "uvicorn",
+    "app:app",
+    "--host", "0.0.0.0",
+    "--port", "8080"
+  ]
