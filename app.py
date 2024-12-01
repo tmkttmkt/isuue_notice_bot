@@ -53,7 +53,7 @@ async def read_root():
 async def read_root():
     asyncio.create_task(stop_discord_bot())
     return "ストップダウン"
-@app.on_event("startup")
+@app.on_event("/start")
 async def startup_event():
     asyncio.create_task(run_discord_bot())
 
