@@ -25,7 +25,7 @@ async def on_ready():
 
 @bot.command()
 async def test(ctx):
-    await ctx.respond("かかって来いよ")
+    await ctx.respond("かかっeeeて来いよ")
     
 @bot.command()
 async def mention(ctx):
