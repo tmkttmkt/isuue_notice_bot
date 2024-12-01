@@ -1,0 +1,1 @@
+discrodにgitのissueをメンション使って通知するボット
