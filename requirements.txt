@@ -1,3 +1,5 @@
 Flask
 py-cord
 gunicorn
+uvicorn
+fastapi
