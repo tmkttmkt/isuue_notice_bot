@@ -7,6 +7,9 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
   return 'Hello, World!'
+@app.route('/start')
+def hello_world():
+    bot.run(os.getenv("DISCORD_TOKEN"))
 
 # Botの設定
 bot = discord.Bot()
@@ -30,9 +33,4 @@ def run_discord_bot():
     bot.run(os.getenv("DISCORD_TOKEN"))
 
 if __name__ == "__main__":
-    # Flaskをバックグラウンドで実行
-    threading.Thread(target=run_flask).start()
-    
-    # Discordボットを実行
-    #threading.Thread(target=run_discord_bot).start()
-    run_discord_bot()
+    app.run(debug=True, use_reloader=False)  
