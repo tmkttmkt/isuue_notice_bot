@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import os
 import discord
 import asyncio
+from data import names
 from threading import Thread
 
 # FastAPIアプリケーションを作成
@@ -25,6 +26,18 @@ async def on_ready():
 @bot.command()
 async def test(ctx):
     await ctx.respond("かかって来いよ")
+    
+@bot.command()
+async def mention(ctx):
+    # ユーザーIDからUserオブジェクトを取得
+    target_user = bot.get_user(names.values()[0])
+    if target_user:
+        # ユーザーにメンション
+        await ctx.send(f"Hello {target_user.mention}, you have been mentioned!")
+    else:
+        await ctx.send("User not found.")
+        
+    await ctx.send(f"Hello {ctx.author.mention}, you have been mentioned!")
 ################################################################################################################################################################
 
 
