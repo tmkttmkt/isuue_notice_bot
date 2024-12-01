@@ -36,11 +36,8 @@ async def mention(ctx):
         await ctx.send(f"Hello {target_user.mention}, you have been mentioned!")
     else:
         await ctx.send("User not found.")
-    print(ctx.author.mention)
-    print(type(ctx.author.mention))
-    print(f"{ctx.author.mention}")
+    print(ctx.guild.members)
     await ctx.send(f"Hello {ctx.author.mention}, you have been mentioned!")
-    await ctx.send(f"@tmkttmktこれはどうだ！！")
 ################################################################################################################################################################
 
 
