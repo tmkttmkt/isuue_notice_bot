@@ -8,7 +8,7 @@ from threading import Thread
 app = FastAPI()
 
 # Discordクライアントを作成
-bot = discord.Client()
+bot = discord.Bot()
 
 ################################################################################################################################################################
 async def run_discord_bot():
@@ -30,9 +30,8 @@ async def read_root():
     return {"message": "Discord bot is running"}
 @app.on_event("startup")
 async def startup_event():
-    """FastAPIアプリケーションの起動時にDiscordボットを開始"""
-    # Discordボットを非同期で実行
     asyncio.create_task(run_discord_bot())
+
 
 ################################################################################################################################################################
 
