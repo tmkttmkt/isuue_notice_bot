@@ -8,7 +8,7 @@ from threading import Thread
 app = FastAPI()
 
 # Discordクライアントを作成
-bot = discord.bot()
+bot = discord.Client()
 
 @app.on_event("startup")
 async def startup_event():
