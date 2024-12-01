@@ -30,7 +30,7 @@ async def test(ctx):
 @bot.command()
 async def mention(ctx):
     # ユーザーIDからUserオブジェクトを取得
-    target_user = bot.get_user(names.values()[0])
+    target_user = bot.get_user(list(names.values())[0])
     if target_user:
         # ユーザーにメンション
         await ctx.send(f"Hello {target_user.mention}, you have been mentioned!")
